@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<script src='https://cdn.parsijoo.ir/content-v1/libraries/jquery/1.0/jquery.min.js'></script>
+	<script>
+		async function getMap(x , y) {
+			let response = await fetch(`https://developers.parsijoo.ir/web-service/v1/map/?type=address&${x}&${y}` ,
+			{
+				headers : {"api-key" : "d3a71d3527504012b778b8127b3e5ef2"}
+			})
+
+			let data = await response.json() 
+			console.log(data.result)
+		}
+		getMap(51.34832,35.68880)
+	</script>
+
+</body>
+</html>

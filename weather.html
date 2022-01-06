@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Weather</title>
+	<link rel="stylesheet" href="weather-icons-master/css/weather-icons.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<div class="container">
+		<form id="city">
+			<input type="text" value="خلخال" name="city" placeholder="اسم شهر را وارد کنید...">
+		</form>
+		<div id="app">
+			
+		</div>
+	</div>
+
+	<script>
+		let app = document.getElementById('app') ;
+		async function getWeather (city) {
+			let response = await fetch(`https://developers.parsijoo.ir/web-service/v1/weather/?type=search&city=${city}` ,
+			{
+				headers : {"api-key" : "4daa0a3ce2954f8d8ba61c8831cecfe4"}
+			})
+			let data = await response.json() 
+			let today = data.result.hava.dayList[0] ;
+			let now_temp = data.result.hava.summary.temp ;
+
+			switch(today.condition) {
+		    	case "آرام" :
+		    	today.color = "t1"  ;
+		    	break ;
+
+		    	case "نسیم" :
+		    	today.color = "t2" ;
+		    	break ;
+
+		    	case "باد ملایم" :
+		    	today.color = "t3" ;
+		    	break ;
+
+		    	case "باد شدید" :
+		    	today.color = "t4" ;
+		    	break ;
+
+		    	case "طوفانی" :
+		    	today.color = "t5" ;
+		    	break ;
+
+		    	default : 
+		    	today.color = "t1" ;
+		    	break ;
+		    }
+
+			app.innerHTML = `
+			            <div class="img ${today.color}">
+			                <i class="wi ${today.symbol}"></i>
+		                </div>
+			            <strong class="city-name">${city}</strong>
+		                <strong class="jav">${today.condition}</strong>
+		                <div class="temp">
+			                <div class="max">${today.max}</div>
+			                <div class="now">${now_temp}</div>
+			                <div class="min">${today.min}</div>
+		                </div>
+		                `
+		}
+		let city1 = document.querySelector('#city') ;
+		city1.addEventListener('submit' , function(e) {
+			e.preventDefault() ;
+			getWeather(e.target.city.value)
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+* {
+	margin: 0 ;
+	padding: 0 ;
+	box-sizing: border-box ;
+}
+.container {
+	width: 30rem ;
+	margin: 150px auto ;
+	border: 2px solid #ddd ;
+	padding: 1rem ;
+}
+.container .city {
+	width: 75% ;
+}
+.container .city input {
+	height: 1.5rem ;
+	width: 100% ;
+}
+.container .img {
+	width: 100% ;
+	height: 23rem ;
+	display: flex ;
+	justify-content: center ;
+	align-items: center ;
+	margin-bottom: 2rem ;
+}
+.container .img i {
+	font-size: 70px ;
+}
+.container .jav {
+	display: block ;
+	text-align: center ;
+	margin-top: 0.5rem ;
+}
+.container .city-name {
+	display: block;
+	text-align: center ;
+	font-size: 25px ;
+}
+.container .temp {
+	display: flex ;
+	flex-direction: row ;
+	justify-content: center ;
+}
+.container .temp div {
+	margin: 20px ;
+}
+.container .temp .min {
+	background-color: #08a6bf ;
+	color: #fff ;
+	padding: 1rem ;
+	border-radius: 8px ;
+}.container .temp .max {
+	background-color: #c54d29 ;
+	color: #fff ;
+	padding: 1rem ;
+	border-radius: 8px ;
+}
+.container .temp .now {
+	background-color: #2ac34b ;
+	color: #fff ;
+	padding: 1rem ;
+	border-radius: 8px ;
+}
+.t1 {
+	background-color: #f5f409 ;
+}
+.t2 {
+	background-color: #84ad17 ;
+}
+.t3 {
+	background-color: #0f6053 ;
+}
+.t4 {
+	background-color: #13539d ;
+}
+.t5 {
+	background-color: #1808bd ;
+}
